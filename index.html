@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Snake Game (Mobile-Friendly)</title>
+    <title>Snake Game (Mobile + Tablet Friendly)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
         body {
@@ -48,13 +48,17 @@
             height: 20px;
             background: #222;
         }
+        /* Snake with image */
         
         .snake {
-            background: limegreen;
+            background: url('snake.WEBP') center center no-repeat;
+            background-size: cover;
         }
+        /* Apple with image */
         
         .food {
-            background: red;
+            background: url('apple.JPG') center center no-repeat;
+            background-size: cover;
         }
         
         button,
@@ -85,11 +89,26 @@
             display: flex;
             justify-content: center;
         }
+        /* Show controls on mobile + tablets, hide only on desktops */
         
-        @media (min-width: 600px) {
+        @media (min-width: 1025px) {
             .touch-controls {
                 display: none;
-                /* Hide on desktop */
+            }
+        }
+        /* Tablet-friendly tweaks */
+        
+        @media (min-width: 600px) and (max-width: 1024px) {
+            .touch-controls button {
+                padding: 15px 30px;
+                font-size: 20px;
+            }
+            #game {
+                gap: 2px;
+                padding: 10px;
+            }
+            #score {
+                font-size: 22px;
             }
         }
     </style>
